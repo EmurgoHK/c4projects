@@ -1,14 +1,14 @@
-# Cardano Update
-One single place to get ALL the news about Cardano, up to the current minute.
+# C4 Projects
+One single place to see ALL the C4 projects, up to the current minute.
 
 ## The problem
-People keep asking for updates from IOHK, Emurgo, and the Cardano Foundation but there's nowhere to get a comprehensive idea of what we're all doing. There's also nowhere to see what people in the community are doing.
+The C4 is an extremely powerful hill-climbing protocol but it isn't well known. As more projects and developers start using it, developers wanting to work for C4 projects will become more common, as will companies wanting to hire people with C4 experience. Emurgo is one of those companies. The simplest way to end up with a list of projects and developers who are comfortable with the C4 is to start working on it ourselves.
 
 ## The solution
-A website that anyone can contribute to and update with news.
+A website that anyone can contribute to and update with their C4 projects.
 
 <details>
-  <summary>How to run Cardanoupdate locally</summary>
+  <summary>How to run c4projects locally</summary>
 <p>
 
 #### Install Meteor   
@@ -21,7 +21,7 @@ curl https://install.meteor.com/ | sh
 git clone https://github.com/EmurgoHK/cardanoupdate.git
 ```
 
-Note: if you want to edit things and send a pull request you should _fork_ this project on Github first and clone _your_ fork instead of https://github.com/EmurgoHK/cardanoupdate.git.
+Note: if you want to edit things and send a pull request you should _fork_ this project on Github first and clone _your_ fork instead of https://github.com/EmurgoHK/c4projects.git.
 
 #### Install Dependencies   
 ```
@@ -68,10 +68,10 @@ To enable Authentication either configure OAuth or copy the following code in th
 Now you will be logged in as a Test user.
 
 
-## Contributing to Cardanoupdate    
+## Contributing to c4projects    
 A cardinal sin that many open source developers make is to place themselves above others. "I founded this project thus my intellect is superior to that of others". It's immodest and rude, and usually inaccurate. The contribution policy we use at Cardanoupdate applies equally to everyone, without distinction.    
 
-The contribution policy we follow is the [Collective Code Construction Contract (C4)](/CONTRIBUTING.MD)    
+The contribution policy we follow is the [Collective Code Construction Contract (C4)](https://github.com/socialarchitecture/protocols/blob/master/SAIP1.MD)    
 
 If you're wondering why any of the rules in the C4 are there, take a look at the [line by line explanation](/DESCRIPTIVE_C4.MD) of everything in the C4, this explains the rationale and history behind everything in the protocol and makes it easier to understand.
 
