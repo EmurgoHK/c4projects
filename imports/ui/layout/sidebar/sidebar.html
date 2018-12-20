@@ -1,0 +1,27 @@
+<template name="sidebar">
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link {{activeClass 'home'}}" href="/">
+            <i class="nav-icon icon-home"></i> {{_ "shared.sidebar.home"}}
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <div class="change-language nav-link">
+              <select name="selectLanguage" id="selectLanguage" class="form-control" style="width:100%">
+                {{#each languages}}
+                  {{#if selected}}
+                    <option value={{code}} selected>{{name}}</option>
+                  {{else}}
+                    <option value={{code}}>{{name}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+            </div>
+        </li> -->
+      </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer bg-dark" type="button"></button>
+  </div>
+</template>

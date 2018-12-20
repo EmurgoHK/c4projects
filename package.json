@@ -1,0 +1,40 @@
+{
+  "name": "c4projects",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "test-serve": "meteor test --full-app --driver-package tmeasday:acceptance-test-driver",
+    "visualize": "meteor --production --extra-packages bundle-visualizer",
+    "prettier": "prettier --write imports/**/*.js server/**/*.js client/**/*.js tests/**/*.js",
+    "prettier-check": "prettier --list-different imports/**/*.js server/**/*.js client/**/*.js tests/**/*.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.0.0-beta.55",
+    "@coreui/coreui": "^2.0.0",
+    "@coreui/icons": "^0.1.1",
+    "bcrypt": "^3.0.2",
+    "bootstrap": "^4.1.1",
+    "chai": "^4.2.0",
+    "jquery": "^3.3.1",
+    "meteor-node-stubs": "^0.4.1",
+    "noty": "^3.2.0-beta",
+    "popper.js": "^1.14.6",
+    "prettier": "^1.15.3",
+    "simpl-schema": "^1.5.3"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": {
+      "client": "tests/client.js",
+      "server": "tests/server.js"
+    }
+  },
+  "devDependencies": {
+    "chalk": "^2.4.1"
+  }
+}

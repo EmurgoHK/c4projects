@@ -1,0 +1,76 @@
+// Logo style override on small screen
+@media (max-width: 991.98px) {
+  .app-header .navbar-brand {
+    left: 60px !important;
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+    padding-top: 5px !important;
+  }
+  .navbar-nav .nav-link {
+    color: #73818f !important;
+    cursor: pointer;
+  }
+}
+header {
+  &.app-header {
+    padding: 0 0.5rem;
+    border-bottom: 1px solid #091a26;
+    // Logo CSS
+    .navbar-brand {
+      width: auto;
+      img {
+        max-width: 100%;
+        width: 155px;
+        height: auto;
+      }
+    }
+  }
+  &.bg-dark {
+    background-color: #091a26 !important;
+  }
+
+  .navbar-nav {
+    li.nav-item {
+      a.nav-link {
+        color: #fff;
+
+        &:hover,
+        &:focus {
+          color: #3cc8c8;
+        }
+      }
+    }
+  }
+
+  button.navbar-toggler {
+    color: #fff;
+
+    &:hover {
+      color: #3cc8c8;
+      outline: 0;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  a.navbar-brand {
+    color: #fff;
+  }
+
+  .left-nav-menu {
+    flex-grow: 1;
+
+    li {
+      display: inline-block;
+
+      &.px-3 {
+        @media (max-width: 1199px) {
+          padding-left: 0.5rem !important;
+          padding-right: 0.5rem !important;
+        }
+      }
+    }
+  }
+}

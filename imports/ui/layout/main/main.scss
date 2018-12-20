@@ -1,0 +1,48 @@
+// Common Header
+section.home-tagline {
+  background-image: url("/img/banner.png");
+  color: #fff;
+  background-size: cover;
+  .header-title {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+  }
+
+  .breadcrumbs {
+    li {
+      list-style: none;
+    }
+    li + li::before {
+      content: "/";
+    }
+  }
+}
+
+.mobile-nav {
+  @extend .home-tagline;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 1em;
+    a {
+      font-weight: bold;
+      font-size: 1rem;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+#__blaze-root {
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 4em;
+}
+
+main.main {
+  padding: 1rem;
+}

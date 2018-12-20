@@ -1,0 +1,48 @@
+{
+	"shared": {
+		"not_found": {
+			"not_found": "Sorry, that page doesn't exist",
+			"go_home": "Go to home"
+		},
+		"header": {
+			"username": "User Name",
+			"account": "Account",
+			"my_profile": "My Profile",
+			"edit_profile": "Edit Profile",
+			"signout": "Sign out",
+			"signin": "Sign In"
+		},
+		"sidebar": {
+			"home": "Home"
+		},
+		"user": {
+			"no_name": "No name"
+		},
+		"flag": {
+			"edit": "Edit",
+			"delete": "Delete",
+			"report": "Report"
+		},
+		"main": {
+			"title": "All the C4 Projects",
+			"title2": "and everything you wanted to know about them.",
+			"home": "Home"
+		},
+		"footer": {
+			"language": "Language",
+			"copyright": "Owned by <a href='https://emurgohk.io/'>EmurgoHK</a> and <a href='https://github.com/EmurgoHK/cardanoupdate/blob/master/AUTHORS'>contributors</a>. Licensed under <a href='https://github.com/EmurgoHK/cardanoupdate/blob/master/LICENSE'>Mozilla Public License 2.0.</a>"
+		},
+		"loginModal": {
+			"login": "Go to login",
+			"cancel": "Cancel",
+			"title": "You have to sign in to __action__!",
+			"default_action": "continue",
+			"action": {
+				"flag": "flag stuff",
+				"delete": "remove stuff",
+				"comment": "comment",
+				"suggest": "suggest new data"
+			}
+		}
+	}
+}
