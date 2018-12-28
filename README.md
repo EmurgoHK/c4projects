@@ -60,9 +60,8 @@ To enable Authentication either configure OAuth or copy the following code in th
       username: 'testing',
       password: 'testing',
       email: 'testing@testing.test',
-      profile: {
-       	name: 'Tester'
-      }
+      name: 'Tester',
+      language: 'en,
     })
 </code>
 Now you will be logged in as a Test user.
