@@ -15,7 +15,7 @@
     "@coreui/coreui": "^2.0.0",
     "@coreui/icons": "^0.1.1",
     "bcrypt": "^3.0.2",
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^4.2.1",
     "chai": "^4.2.0",
     "jquery": "^3.3.1",
     "meteor-node-stubs": "^0.4.1",
