@@ -115,6 +115,7 @@ $enable-transitions: true !default;
 $enable-hover-media-query: false !default; // Deprecated, no longer affects any compiled CSS
 $enable-grid-classes: true !default;
 $enable-print-styles: true !default;
+$enable-prefers-reduced-motion-media-query: true !default;
 
 // Spacing
 //
@@ -262,6 +263,7 @@ $font-size-sm: ($font-size-base * 0.875) !default;
 $font-weight-light: 300 !default;
 $font-weight-normal: 400 !default;
 $font-weight-bold: 700 !default;
+$font-weight-bolder: 900 !default;
 
 $font-weight-base: $font-weight-normal !default;
 $line-height-base: 1.5 !default;
@@ -298,6 +300,7 @@ $small-font-size: 80% !default;
 $text-muted: $gray-600 !default;
 
 $blockquote-small-color: $gray-600 !default;
+$blockquote-small-font-size: $font-size-sm !default;
 $blockquote-font-size: ($font-size-base * 1.25) !default;
 
 $hr-border-color: rgba($black, 0.1) !default;
@@ -324,6 +327,8 @@ $table-cell-padding: 0.75rem !default;
 $table-cell-padding-sm: 0.3rem !default;
 
 $table-bg: transparent !default;
+$table-bg-level: -10 !default;
+$table-border-level: -9 !default;
 $table-accent-bg: rgba($black, 0.05) !default;
 $table-hover-bg: rgba($black, 0.075) !default;
 $table-active-bg: $table-hover-bg !default;
@@ -452,6 +457,11 @@ $input-height-inner-lg: ($font-size-lg * $input-btn-line-height-lg) + ($input-bt
 $input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
 
 $input-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+
+$input-font-size: $font-size-base !default;
+$input-font-size-sm: $font-size-sm !default;
+$input-font-size-lg: $font-size-lg !default;
+$input-font-weight: $font-weight-base !default;
 
 $form-text-margin-top: 0.25rem !default;
 
