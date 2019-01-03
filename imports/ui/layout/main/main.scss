@@ -13,9 +13,10 @@ section.home-tagline {
   .breadcrumbs {
     li {
       list-style: none;
+      display: inline-block;
     }
     li + li::before {
-      content: "/";
+      content: " / ";
     }
   }
 }

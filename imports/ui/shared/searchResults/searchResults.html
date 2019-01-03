@@ -1,0 +1,29 @@
+<template name="searchResults">
+  <div class="float-right">
+    <button class="btn btn-link" id="sort-date">
+      {{_ "search.date"}} {{#if isDateAsc 'date-asc'}} <i class="fas fa-sort-down"></i> {{else}} {{#if isDateAsc 'date-desc'}} <i class="fas fa-sort-up"></i> {{/if}} {{/if}}
+    </button>
+    <button class="btn btn-link" id="sort-title">
+      {{_ "search.title"}} {{#if isTitleAsc 'title-asc'}} <i class="fas fa-sort-down"></i> {{else}} {{#if isTitleAsc 'title-desc'}}<i class="fas fa-sort-up"></i> {{/if}} {{/if}}
+    </button>
+  </div>
+  <p>{{_ "search.found"}} {{resultCount}} {{_ "search.items"}}</p>
+  <div class="clearfix"></div>
+  <div class="card-columns">
+  {{#if showAddNew}}
+    <!-- Add New Content -->
+    <div class="card add-new-content btn-outline-primary">
+      <div class="card-body">
+        <a id="add-new"><p class="card-text"><i class="fa fa-plus"></i> {{_ "search.add_new"}}</p></a>
+      </div>
+    </div>
+  {{/if}}
+  {{#if resultCount}}
+    {{#each result in results}}
+      {{> projectCard project=result.res displayTypeLabel=displayTypeLabel textTransformer=highlighter translations=result.translations}}
+    {{/each}}
+  {{else}}
+    <p>{{_ "search.nothing"}}</p>
+  {{/if}}
+  </div>
+</template>
