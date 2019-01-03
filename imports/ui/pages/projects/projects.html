@@ -1,0 +1,17 @@
+<template name="projects">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="float-right">
+          <button class="btn btn-outline-primary" id="add-project">{{_ "projects.main.add"}}</button>
+        </div>
+        <h2>{{_ "projects.main.projects"}}</h2>
+        <p class="section-intro">{{_ "projects.main.desc"}}</p>
+      </div>
+    </div>
+
+    {{> searchBar searchArgs }}
+    <hr />
+    {{> searchResults resultArgs}}
+  </div>
+</template>

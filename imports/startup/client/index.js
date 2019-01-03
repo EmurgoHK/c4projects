@@ -12,6 +12,12 @@ import "../../ui/pages/home/home";
 import "../../ui/pages/login/login";
 import "../../ui/pages/signup/signup";
 
+import "../../ui/pages/projects/projectForm";
+import "../../ui/pages/projects/projects";
+import "../../ui/pages/projects/viewProject";
+
+import "../../ui/utils/handlebars-helpers";
+
 Meteor.startup(() => {
   reCAPTCHA.config({
     publickey: Meteor.settings.public.RECAPTCHA_CLIENT,

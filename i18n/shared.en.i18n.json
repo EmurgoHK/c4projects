@@ -7,13 +7,15 @@
 		"header": {
 			"username": "User Name",
 			"account": "Account",
+			"projects": "Projects",
 			"my_profile": "My Profile",
 			"edit_profile": "Edit Profile",
 			"signout": "Sign out",
 			"signin": "Sign In"
 		},
 		"sidebar": {
-			"home": "Home"
+			"home": "Home",
+			"projects": "Projects"
 		},
 		"user": {
 			"no_name": "No name"

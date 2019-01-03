@@ -1,10 +1,6 @@
 import "./header.html";
 import "./header.scss";
 
-Template.header.onCreated(function() {
-  this.autorun(() => {});
-});
-
 Template.header.events({
   "click .sidebar-toggler"(event) {
     event.stopPropagation();

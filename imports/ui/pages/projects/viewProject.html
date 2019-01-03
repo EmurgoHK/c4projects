@@ -1,0 +1,56 @@
+<template name="viewProject">
+  <div class="container">
+    <div class="row mx-auto mb-5">
+      <div class="col-sm-12">
+        {{#if SubsCacheReady}}
+          {{#if isOwner}}
+            <a href="/projects/{{project._id}}/edit" class="btn btn-primary btn-sm mr-2 float-right">
+              <i class="fas fa-edit"></i> {{_ "projects.view.edit"}}
+            </a>
+          {{/if}}
+        <h1 class="card-title text-dark mt-3"><strong>{{project.headline}}</strong></h1>
+        <h5 class="card-subtitle mb-3 mt-3">
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              {{_ "projects.view.by"}} <strong><span class="name">{{> userNameDisplay project.author }}</span></strong>
+            </li>
+            <li class="list-inline-item">
+              <i class="icon-clock" style="vertical-align: middle"></i>&nbsp;{{showTimeAgoTimestamp project.createdAt}}
+            </li>
+          </ul>
+        </h5>
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-5">
+              <div class="col-sm-12 news-body pt-4 pl-3 pr-3 text-justify">{{project.description}}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                {{#unless project.github_url}}
+                <a href="" class="btn btn-warning projectWarning" target="_blank">
+                  <i class="fas fa-exclamation-circle fa-lg"></i>
+                </a>
+                {{/unless}}
+                <a href="{{project.github_url}}" class="btn btn-dark text-white github" target="_blank">
+                  <i class="fab fa-github fa-lg"></i>
+                </a>
+                <a
+                  href="{{project.website}}"
+                  title="{{#if project.website }}{{_ 'projects.view.go_to'}} {{project.website}} {{else}} {{_ 'projects.view.suggest'}} {{/if}}"
+                  class="btn btn-secondary website"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt fa-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{else}} 
+          {{> loader}} 
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>

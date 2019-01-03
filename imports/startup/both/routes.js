@@ -4,6 +4,7 @@ import { Session } from "meteor/session";
 import { Accounts } from "meteor/accounts-base";
 
 import { notify } from "../../ui/utils/notifier";
+import { Projects } from "../../api/projects/projects";
 
 const userLoginFilter = (context, redirect, _stop) => {
   let oldRoute = "/";
@@ -99,6 +100,66 @@ FlowRouter.route("/signup", {
       sidebar: "sidebar",
       footer: "footer",
       main: "signup",
+    });
+  },
+});
+
+// Set up all routes in the app
+FlowRouter.route("/projects", {
+  name: "projects",
+  breadcrumb: params => {
+    return {
+      text: "projects",
+      urls: ["/projects"],
+    };
+  },
+  action: () => {
+    BlazeLayout.render("main", {
+      header: "header",
+      sidebar: "sidebar",
+      main: "projects",
+    });
+  },
+});
+
+FlowRouter.route("/projects/new", {
+  name: "addProject",
+  breadcrumb: params => {
+    return {
+      text: "projects_new",
+      urls: ["/projects"],
+    };
+  },
+  triggersEnter: [userLoginFilter],
+  action: () => {
+    BlazeLayout.render("main", {
+      header: "header",
+      sidebar: "sidebar",
+      footer: "footer",
+      main: "projectForm",
+    });
+  },
+});
+
+FlowRouter.route("/projects/:slug", {
+  name: "viewProject",
+  breadcrumb: params => {
+    let project = Projects.findOne({
+      slug: params.slug,
+    });
+    console.log("xxxx", project, params.slug);
+    return {
+      text: "projects_view",
+      name: project ? project.headline : "View",
+      urls: ["/projects"],
+    };
+  },
+  action: () => {
+    BlazeLayout.render("main", {
+      header: "header",
+      sidebar: "sidebar",
+      footer: "footer",
+      main: "viewProject",
     });
   },
 });

@@ -1,0 +1,9 @@
+{
+	"breadcrumbs": {
+		"projects": "Projects",
+		"projects_new": "Projects / New",
+		"projects_edit": "Projects / Edit",
+		"projects_translate": "Projects / Translate",
+		"projects_view": "Projects / %s"
+	}
+}
