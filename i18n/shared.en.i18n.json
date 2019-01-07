@@ -16,7 +16,14 @@
 		"sidebar": {
 			"home": "Home",
 			"projects": "Projects"
-		},
+    },
+    "search" : {
+      "date" : "Date",
+      "title" : "Title",
+      "found" : "Found",
+      "items" : "Items",
+      "not_found" : "Sorry, we coundn't find anything. Please try again."
+    },
 		"user": {
 			"no_name": "No name"
 		},
