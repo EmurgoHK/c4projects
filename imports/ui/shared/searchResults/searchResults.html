@@ -22,7 +22,11 @@
   {{/if}}
   {{#if resultCount}}
     {{#each result in results}}
-      {{> projectCard project=result.res displayTypeLabel=displayTypeLabel textTransformer=highlighter translations=result.translations}}
+      {{#if isTypeOf result 'project'}}
+        {{> projectCard project=result.res displayTypeLabel=displayTypeLabel textTransformer=highlighter}}
+      {{else if isTypeOf result 'news'}}
+        {{> newsCard news=result.res displayTypeLabel=displayTypeLabel textTransformer=highlighter}}
+      {{/if}}
     {{/each}}
   {{else}}
     <p>{{_ "shared.search.not_found"}}</p>

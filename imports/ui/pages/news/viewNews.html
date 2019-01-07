@@ -1,0 +1,49 @@
+<template name="viewNews">
+  <section class="viewNews container">
+      <div class="row mx-auto mb-5">
+        <div class="col-sm-12">
+          {{#if SubsCacheReady}}
+            {{#if isOwner}}
+              <a href="/news/{{news.slug}}/edit" class="btn btn-primary btn-sm mr-2 float-right">
+                <i class="fas fa-edit"></i> {{_ "news.view.edit"}}
+              </a>
+            {{/if}}
+            <h1 class="card-title text-dark mt-3"><strong>{{news.headline}}</strong></h1>
+            <h5 class="card-subtitle mb-3 mt-3">
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  {{_ "news.view.by"}} <strong><span class="name">{{> userNameDisplay author }}</span></strong>
+                </li>
+                <li class="list-inline-item">
+                  <i class="icon-clock" style="vertical-align: middle"></i>&nbsp;{{showTimeAgoTimestamp news.createdAt}}
+                </li>
+              </ul>
+            </h5>
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12 news-body pt-4 pl-3 pr-3 text-justify">
+                    <p>{{news.description}}</p>
+                    <p>
+                      {{#if project}}
+                      <a href="/projects/{{project.slug}}" class="btn btn-link">
+                        {{_ "news.view.view_project" project.headline}}
+                      </a>
+                      {{/if}}
+                      {{#if news.readMoreURL }}
+                        <a href="{{news.readMoreURL}}" class="btn btn-link" target="_blank">
+                          {{_ "news.view.read_more"}} <i class="fas fa-external-link-alt"></i>
+                        </a>
+                      {{/if}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{else}}
+            {> loader }
+          {{/if}}
+        </div>
+      </div>
+  </section>
+</template>

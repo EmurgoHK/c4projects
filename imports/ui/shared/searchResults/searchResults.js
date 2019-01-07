@@ -1,9 +1,11 @@
 import "../projectCard/projectCard";
+import "../newsCard/newsCard";
 
 import "./searchResults.html";
 import "./searchResults.scss";
 
 import { Projects } from "/imports/api/projects/projects";
+import { News } from "../../../api/news/news";
 
 Template.searchResults.onCreated(function() {
   this.sort = new ReactiveVar("date-desc"); // state of the sort by date
@@ -46,6 +48,9 @@ function getFilters(contentType, regex, languages, data) {
       case "project":
         orFilters = [{ description: regex }, { headline: regex }, { tags: regex }];
         break;
+      case "news":
+        orFilters = [{ description: regex }, { headline: regex }, { tags: regex }, { projectId: data.searchTerm}];
+        break;
       default:
         throw new Error("UnknownContentType" + contentType);
     }
@@ -67,9 +72,12 @@ function getFilters(contentType, regex, languages, data) {
 Template.searchResults.onRendered(function() {
   this.autorun(() => {
     const data = Template.currentData();
-    console.log(data.types, data.searchTerm);
+
     if (data.types.includes("projects")) {
       this.subscribe("projects.search", data.searchTerm);
+    }
+    if (data.types.includes("news")) {
+      this.subscribe("news.search", data.searchTerm);
     }
   });
   this.autorun(() => {
@@ -87,6 +95,16 @@ Template.searchResults.onRendered(function() {
       res = res.concat(
         Projects.find(getFilters("project", regex, data.languages, data), opts).map(p => ({
           type: "project",
+          res: p,
+          date: p.createdAt,
+          titleText: p.headline, // use the headline field of projects as title
+        }))
+      );
+    }
+    if (data.types.includes("news")) {
+      res = res.concat(
+        News.find(getFilters("news", regex, data.languages, data), opts).map(p => ({
+          type: "news",
           res: p,
           date: p.createdAt,
           titleText: p.headline, // use the headline field of projects as title

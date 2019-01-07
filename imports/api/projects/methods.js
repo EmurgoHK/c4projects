@@ -6,6 +6,7 @@ import { Projects } from "./projects";
 
 import { isModerator } from "../user/methods";
 import { isTesting } from "../utilities";
+import { addNews } from "../news/methods";
 
 export const addProject = new ValidatedMethod({
   name: "addProject",
@@ -57,7 +58,12 @@ export const addProject = new ValidatedMethod({
       data.createdAt = new Date().getTime();
 
       const id = Projects.insert(data);
-
+      addNews.call({
+        projectId: id,
+        headline: `Project created: ${data.headline}`,
+        description: `A new project was added called ${data.headline}`,
+        type: 'project_created',
+      });
       return id;
     }
   },

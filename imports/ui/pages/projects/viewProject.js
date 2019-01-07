@@ -15,25 +15,30 @@ import { notify } from "../../utils/notifier";
 import { loggedInSWAL } from "../../utils/loggedInSWAL";
 
 Template.viewProject.onCreated(function() {
+  this.project = new ReactiveVar();
+
   this.autorun(() => {
     this.subscribe("projects.item", FlowRouter.getParam("slug"));
     this.subscribe("users");
+  });
 
-    this.subscribe("translationGroups.itemSlug", { slug: FlowRouter.getParam("slug"), contentType: "project" });
+  this.autorun(() => {
+    const project = Projects.findOne({
+      slug: FlowRouter.getParam("slug"),
+    })
+    this.project.set(project);
   });
 });
 
 Template.viewProject.helpers({
   isOwner: function() {
-    if (this.createdBy === Meteor.userId()) {
+    const project = Template.instance().project.get();
+    if (project && project.createdBy === Meteor.userId()) {
       return true;
     }
     return false;
   },
-  project: () =>
-    Projects.findOne({
-      slug: FlowRouter.getParam("slug"),
-    }),
+  project: () => Template.instance().project.get(),
   author: () => Meteor.users.findOne({ _id: Template.currentData().createdBy }),
   coolCount: function() {
     return Comments.find({
@@ -54,13 +59,15 @@ Template.viewProject.helpers({
       notify(TAPi18n.__("projects.view.success"), "success");
     };
   },
-  translations: () => {
-    const group = TranslationGroups.findOne({});
-    return group
-      ? group.translations
-          .filter(t => t.slug !== FlowRouter.getParam("slug"))
-          .map(t => ({ language: t.language, href: `/projects/${t.slug}` }))
-      : [];
+  newsArgs: () => {
+    const project = Template.instance().project.get();
+
+    return {
+      types: project ? ["news"] : [], // This is to make sure we don't load/render all news if the project is not yet loaded.
+      searchTerm: project && project._id,
+      doLanguageGrouping: true,
+      languages: Meteor.user() && Meteor.user().profile && Meteor.user().profile.contentLanguages,
+    };
   },
 });
 

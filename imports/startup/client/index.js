@@ -16,6 +16,9 @@ import "../../ui/pages/projects/projectForm";
 import "../../ui/pages/projects/projects";
 import "../../ui/pages/projects/viewProject";
 
+import "../../ui/pages/news/newsForm";
+import "../../ui/pages/news/viewNews";
+
 import "../../ui/utils/handlebars-helpers";
 
 Meteor.startup(() => {

@@ -1,0 +1,41 @@
+{
+	"news": {
+		"form": {
+			"new": "New News",
+			"edit": "Edit News",
+			"translate": "Translate News",
+			"language": "Language",
+			"name": "Name",
+			"name_placeholder": "Name in 90 characters or less",
+			"desc": "Description",  
+			"desc_placeholder": "News description",
+			"readMoreURL": "Read more",
+			"readMoreURL_placeholder": "Where the user can find out more",
+			"submit": "Submit",
+			"merge": "Merge",
+			"reject": "Reject",
+			"new_data": "wants to propose the following new data:",
+			"close": "Close",
+			"success_add": "Successfully added.",
+			"success_edit": "Successfully edited.",
+			"chars_left": "characters left",
+			"success_update": "Successfully updated.",
+			"error": "Error while updating information"
+		},
+		"view": {
+			"edit": "Edit News",
+			"by": "Posted by",
+			"tags": "Tags",
+			"go_to": "Go to",
+			"success": "Successfully commented.",
+			"ok": "Okay",
+			"view_project": "View %s",
+			"read_more": "Read more"
+		},
+		"card": {
+			"news": "News",
+			"go_to": "Go to",
+			"are_you_sure": "Are you sure you want to remove this News? This action is not reversible."
+		}
+	}
+}

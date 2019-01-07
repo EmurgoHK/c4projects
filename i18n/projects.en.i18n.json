@@ -53,7 +53,9 @@
 			"no_web": "Website is not available. If you know this information, please contribute below:",
 			"missing_repo": "Missing source repository",
 			"missing_info": "This project does't contain any link to the source repository",
-			"ok": "Okay"
+			"ok": "Okay",
+			"news_header": "News",
+			"news_add": "Add"
 		},
 		"card": {
 			"project": "Project",
