@@ -1,13 +1,15 @@
 <template name="searchResults">
   <div class="float-right">
     <button class="btn btn-link" id="sort-date">
-      {{_ "search.date"}} {{#if isDateAsc 'date-asc'}} <i class="fas fa-sort-down"></i> {{else}} {{#if isDateAsc 'date-desc'}} <i class="fas fa-sort-up"></i> {{/if}} {{/if}}
+        {{_ "shared.search.date"}} {{#if isDateAsc 'date-asc'}} <i class="fas fa-sort-down"></i> {{else}} {{#if isDateAsc 'date-desc'}} <i class="fas fa-sort-up"></i> {{/if}} {{/if}}
     </button>
     <button class="btn btn-link" id="sort-title">
-      {{_ "search.title"}} {{#if isTitleAsc 'title-asc'}} <i class="fas fa-sort-down"></i> {{else}} {{#if isTitleAsc 'title-desc'}}<i class="fas fa-sort-up"></i> {{/if}} {{/if}}
+        {{_ "shared.search.title"}} {{#if isTitleAsc 'title-asc'}} <i class="fas fa-sort-down"></i> {{else}} {{#if isTitleAsc 'title-desc'}}<i class="fas fa-sort-up"></i> {{/if}} {{/if}}
     </button>
   </div>
-  <p>{{_ "search.found"}} {{resultCount}} {{_ "search.items"}}</p>
+  {{#if resultCount}}
+    <p>{{_ "shared.search.found"}} {{resultCount}} {{_ "shared.search.items"}}</p>
+  {{/if}}
   <div class="clearfix"></div>
   <div class="card-columns">
   {{#if showAddNew}}
@@ -23,7 +25,7 @@
       {{> projectCard project=result.res displayTypeLabel=displayTypeLabel textTransformer=highlighter translations=result.translations}}
     {{/each}}
   {{else}}
-    <p>{{_ "search.nothing"}}</p>
+    <p>{{_ "shared.search.not_found"}}</p>
   {{/if}}
   </div>
 </template>
