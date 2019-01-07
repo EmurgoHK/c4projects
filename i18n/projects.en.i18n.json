@@ -36,7 +36,7 @@
 		"main": {
 			"add": "Add Project",
 			"projects": "Projects",
-			"desc": "Projects that are built on or for Cardano. This includes everything from developer libraries to user wallets."
+			"desc": "All projects using c4 protocol."
 		},
 		"view": {
 			"edit": "Edit Project",
