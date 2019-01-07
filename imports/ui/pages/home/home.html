@@ -1,4 +1,15 @@
 <template name="home">
-  <h1>Hello devs!</h1>
-  <h2>This is under constructions.</h2>
+  <div class="container">
+    <div class="home-page">
+      <section class="projects">
+        <div class="title">Projects</div>
+        <p>All projects using c4 protocol.</p>
+        <div class="content">
+          {{> searchBar searchArgs placeholder="Search c4projects"}}
+          <hr />
+          {{> searchResults resultArgs}}
+        </div>
+      </section>
+    </div>
+  </div>
 </template>
