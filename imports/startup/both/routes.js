@@ -5,6 +5,7 @@ import { Accounts } from "meteor/accounts-base";
 
 import { notify } from "../../ui/utils/notifier";
 import { Projects } from "../../api/projects/projects";
+import { News } from "../../api/news/news";
 
 const userLoginFilter = (context, redirect, _stop) => {
   let oldRoute = "/";
@@ -147,7 +148,7 @@ FlowRouter.route("/projects/:slug", {
     let project = Projects.findOne({
       slug: params.slug,
     });
-    console.log("xxxx", project, params.slug);
+
     return {
       text: "projects_view",
       name: project ? project.headline : "View",
@@ -160,6 +161,77 @@ FlowRouter.route("/projects/:slug", {
       sidebar: "sidebar",
       footer: "footer",
       main: "viewProject",
+    });
+  },
+});
+
+FlowRouter.route("/projects/:projectSlug/addNews", {
+  name: "addNews",
+  breadcrumb: params => {
+    let project = Projects.findOne({
+      slug: params.projectSlug,
+    });
+    
+    return {
+      text: "news_new",
+      name: project ? project.headline : "View",
+      urls: ["/projects", "/projects/" + params.projectSlug],
+    };
+  },
+  action: () => {
+    BlazeLayout.render("main", {
+      header: "header",
+      sidebar: "sidebar",
+      footer: "footer",
+      main: "newsForm",
+    });
+  },
+});
+
+FlowRouter.route("/news/:slug/edit", {
+  name: "editNews",
+  breadcrumb: params => {
+    let news = News.findOne({
+      slug: params.slug,
+    });
+    
+    return {
+      text: "news_view",
+      name: news ? news.headline : "View",
+      urls: [
+        "/news/"+ params.slug,
+      ],
+    };
+  },
+  action: () => {
+    BlazeLayout.render("main", {
+      header: "header",
+      sidebar: "sidebar",
+      footer: "footer",
+      main: "newsForm",
+    });
+  },
+});
+
+FlowRouter.route("/news/:slug", {
+  name: "viewNews",
+  breadcrumb: params => {
+    let news = News.findOne({
+      slug: params.slug,
+    });
+    
+    return {
+      text: "news_view",
+      name: news ? news.headline : "View",
+      urls: ["/"],
+    };
+  },
+  action: () => {
+    BlazeLayout.render("main", {
+      header: "header",
+      sidebar: "sidebar",
+      footer: "footer",
+      main: "viewNews",
     });
   },
 });

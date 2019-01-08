@@ -4,6 +4,12 @@
 		"projects_new": "Projects / New",
 		"projects_edit": "Projects / Edit",
 		"projects_translate": "Projects / Translate",
-		"projects_view": "Projects / %s"
+		"projects_view": "Projects / %s",
+
+		"news": "News",
+		"news_new": "Projects / %s / Add News",
+		"news_edit": "News / Edit",
+		"news_translate": "News / Translate",
+		"news_view": "News / %s"
 	}
 }

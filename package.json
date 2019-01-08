@@ -31,10 +31,6 @@
     "mainModule": {
       "client": "client/main.js",
       "server": "server/main.js"
-    },
-    "testModule": {
-      "client": "tests/client.js",
-      "server": "tests/server.js"
     }
   },
   "devDependencies": {

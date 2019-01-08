@@ -39,33 +39,6 @@ Template.projectForm.helpers({
   isEdit: () => FlowRouter.current().route.name.startsWith("edit"),
 
   project: () => Template.instance().project.get(),
-  changedItems: () => {
-    const project = Template.instance().project.get();
-    if (!project) return [];
-
-    let edits = project.edits.filter(a => a.status === "Open");
-
-    return edits.map(j => ({
-      status: j.status,
-      slug: i.slug,
-      _id: project._id,
-      editId: j._id,
-      headline: i.headline,
-      datapoint: j.datapoint,
-      newData: j.newData,
-      author:
-        (
-          (
-            Meteor.users.findOne({
-              _id: j.proposedBy,
-            }) || {}
-          ).profile || {}
-        ).name || "No name",
-      type: j.type || "string",
-      link: j.type === "link",
-      createdAt: j.createdAt,
-    }));
-  },
   languages: () => {
     return Object.keys(TAPi18n.languages_names).map(key => {
       return {
@@ -136,7 +109,6 @@ Template.projectForm.events({
       return;
     }
 
-    const original = FlowRouter.current().route.name.startsWith("translate") ? FlowRouter.getParam("id") : undefined;
     addProject.call(
       {
         headline: $("#headline").val(),
@@ -146,7 +118,6 @@ Template.projectForm.events({
         captcha: captchaData,
         type: $('input[name="type"]:checked').val(),
         language: $("#language").val(),
-        original,
       },
       (err, data) => {
         if (!err) {
@@ -166,42 +137,6 @@ Template.projectForm.events({
             $(`#${e.name}Error`).show();
             $(`#${e.name}Error`).text(TAPi18n.__(e.message));
           });
-        }
-      }
-    );
-  },
-  "click #js-merge": function(event, templateInstance) {
-    event.preventDefault();
-
-    resolveProjectDataUpdate.call(
-      {
-        projectId: this._id,
-        editId: this.editId,
-        decision: "merge",
-      },
-      (err, data) => {
-        if (err) {
-          notify(TAPi18n.__(err.reason || err.message), "error");
-        } else {
-          notify(TAPi18n.__("projects.form.success_merge"), "success");
-        }
-      }
-    );
-  },
-  "click #js-reject": function(event, templateInstance) {
-    event.preventDefault();
-
-    resolveProjectDataUpdate.call(
-      {
-        projectId: this._id,
-        editId: this.editId,
-        decision: "reject",
-      },
-      (err, data) => {
-        if (err) {
-          notify(TAPi18n.__(err.reason || err.message), "error");
-        } else {
-          notify(TAPi18n.__("projects.form.success_reject"), "success");
         }
       }
     );

@@ -1,0 +1,76 @@
+<template name="newsForm">
+  <section class="newsForm container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2>{{#if isNew}} {{_ "news.form.new"}} {{else if isEdit}} {{_ "news.form.edit"}} {{/if}}</h2>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              <form class="news-form">
+                <div class="group-title">{{_ "news.form.name"}}</div>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="headline"
+                    maxlength="90"
+                    value="{{news.headline}}"
+                    placeholder="{{_ 'news.form.name_placeholder'}}"
+                  />
+                  <div id="headlineError" class="invalid-feedback"></div>
+                </div>
+                <small><i id="headline-chars" class="text-muted"></i></small>
+  
+                <div class="group-title">{{_ "news.form.language"}}</div>
+                <div class="input-group">
+                  <select name="language" id="language" class="form-control" disabled="{{isEdit}}">
+                    {{#each lang in languages}}
+                      <option value="{{lang.code}}" selected="{{lang.selected}}" disabled="{{lang.disabled}}">{{lang.name}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+                <div id="languageError" class="invalid-feedback"></div>
+  
+                <div class="group-title">{{_ "news.form.desc"}}</div>
+                <div class="input-group">
+                  <textarea
+                    class="form-control"
+                    id="description"
+                    rows="8"
+                    value="{{news.description}}"
+                    placeholder="{{_ 'news.form.desc_placeholder'}}"
+                  ></textarea>
+                  <div id="descriptionError" class="invalid-feedback"></div>
+                </div>
+                <!-- <small><i id="description-chars" class="text-muted"></i></small> -->
+                <div class="group-title">{{_ "news.form.readMoreURL"}}</div>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="readMoreURL"
+                    value="{{news.readMoreURL}}"
+                    placeholder="{{_ 'news.form.website_placeholder'}}"
+                  />
+                </div>
+                <br />
+                <div class="input-group">
+                  {{> reCAPTCHA}}
+                  <div id="captchaError" class="invalid-feedback"></div>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <div>
+                <button type="submit" class="btn btn-lg btn-success add-news">{{_ "news.form.submit"}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+</template>
