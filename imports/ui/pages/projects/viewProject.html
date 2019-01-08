@@ -12,7 +12,7 @@
         <h5 class="card-subtitle mb-3 mt-3">
           <ul class="list-inline">
             <li class="list-inline-item">
-              {{_ "projects.view.by"}} <strong><span class="name">{{> userNameDisplay project.author }}</span></strong>
+              {{_ "projects.view.by"}} <strong><span class="name"> {{> userNameDisplay project.createdBy }} </span></strong>
             </li>
             <li class="list-inline-item">
               <i class="icon-clock" style="vertical-align: middle"></i>&nbsp;{{showTimeAgoTimestamp project.createdAt}}
