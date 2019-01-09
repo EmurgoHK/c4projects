@@ -11,3 +11,7 @@ import "../../api/projects/methods";
 import "../../api/news/server/publications";
 import "../../api/news/news";
 import "../../api/news/methods";
+
+import "../../api/comments/server/publications";
+import "../../api/comments/comments";
+import "../../api/comments/methods";

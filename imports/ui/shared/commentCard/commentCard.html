@@ -1,0 +1,53 @@
+<template name="commentCard">
+	{{#with comment}}
+		<div class="comment card" id="comment-{{_id}}">
+      <div class="card-body">
+        <div class="news-settings float-right dropdown" style="margin-top: -10px;">
+          <i class="nav-icon icon-settings dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+          <div class="dropdown-menu">
+            <a class="dropdown-item flag-comment" href="#" title="Report"><i class="fas fa-exclamation-triangle text-dark"></i> {{_ "comments.flag"}}</a>
+            {{#if canEditComment}}
+            <a class="dropdown-item edit-mode" data-id="{{_id}}" href="#"><i class="icon-pencil text-dark"></i> {{_ "comments.edit"}}</a>
+            <a class="dropdown-item text-danger delete-comment" href="#"><i class="icon-trash text-danger"></i> {{_ "comments.delete"}}</a>
+            {{/if}}
+          </div>
+        </div>
+
+        <h6 class="card-subtitle mb-2">{{_ "comments.by"}} <strong>{{> userNameDisplay user}}</strong> {{showTimeAgoTimestamp createdAt}}</h6>
+        <p class="card-text mb-2">
+          {{#if editMode}}
+            {{> commentForm parentId=parentId articleId=articleId id=_id articleType=articleType onSuccess=editSuccess onCancel=editCancel text=text}}
+          {{else}}
+            <span class="comment-message">{{{md text}}}</span>
+          {{/if}}
+        </p>
+      	<div>
+					<a href="#" class="reply" data-id="{{_id}}"><i class="fa fa-reply"></i>&nbsp; {{_ "comments.reply"}}</a>
+					{{#if childCommentCount}}
+						{{#if showReplies}}
+							<a href="#" class="hideReplies show-hide-action" data-id="{{_id}}">{{_ "comments.hide_replies"}} ({{childCommentCount}})</a>
+						{{else}}
+							<a href="#" class="showReplies show-hide-action" data-id="{{_id}}">{{_ "comments.show_replies"}} ({{childCommentCount}})</a>
+						{{/if}}
+					{{/if}}
+				</div>
+    	</div>
+			{{#if showReplies}}
+				<div class="replies">
+					{{#if replyMode}}
+					<div class="row">
+							<div class="col-sm-12 news-form">
+									<div class="card">
+											{{> commentForm wrapperClasses="card-body" parentId=_id articleId=articleId articleType=articleType onSuccess=replySuccess onCancel=replyCancel}}
+									</div>
+							</div>
+					</div>
+					{{/if}}
+					{{#each comment in childComments}}
+						{{> commentCard subCommentArgs comment}}
+					{{/each}}
+				</div>
+			{{/if}}
+    </div>
+  {{/with}}
+</template>

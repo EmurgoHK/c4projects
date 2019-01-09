@@ -10,7 +10,7 @@ function maxCharValue(inputId) {
   if (inputId === "headline") {
     return 90;
   }
-};
+}
 
 Template.newsForm.onCreated(function() {
   this.news = new ReactiveVar();
@@ -18,30 +18,27 @@ Template.newsForm.onCreated(function() {
 
   this.autorun(() => {
     if (FlowRouter.current().route.name.startsWith("edit")) {
-      this.subscribe('news.itemWithProject', FlowRouter.getParam("slug"));
+      this.subscribe("news.itemWithProject", FlowRouter.getParam("slug"));
     } else {
-      this.subscribe('projects.item', FlowRouter.getParam("projectSlug"));
+      this.subscribe("projects.item", FlowRouter.getParam("projectSlug"));
     }
   });
-  
+
   this.autorun(() => {
     if (FlowRouter.current().route.name.startsWith("edit")) {
       const slug = FlowRouter.getParam("slug");
-      const news = News.findOne(
-        {
-          $or: [
-            {_id: slug}, 
-            {slug}
-        ]});
+      const news = News.findOne({
+        $or: [{ _id: slug }, { slug }],
+      });
 
       if (news) {
-        this.subscribe('news.item', news._id);
+        this.subscribe("news.item", news._id);
       }
 
       Template.instance().news.set(news);
     }
 
-    this.project.set(Projects.findOne({slug:  FlowRouter.getParam("projectSlug")}));
+    this.project.set(Projects.findOne({ slug: FlowRouter.getParam("projectSlug") }));
   });
 });
 
@@ -61,7 +58,6 @@ Template.newsForm.helpers({
     });
   },
 });
-
 
 Template.newsForm.events({
   "keyup .form-control"(event, _tpl) {

@@ -25,7 +25,7 @@ Template.viewProject.onCreated(function() {
   this.autorun(() => {
     const project = Projects.findOne({
       slug: FlowRouter.getParam("slug"),
-    })
+    });
     this.project.set(project);
   });
 });

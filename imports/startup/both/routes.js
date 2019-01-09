@@ -171,7 +171,7 @@ FlowRouter.route("/projects/:projectSlug/addNews", {
     let project = Projects.findOne({
       slug: params.projectSlug,
     });
-    
+
     return {
       text: "news_new",
       name: project ? project.headline : "View",
@@ -194,13 +194,11 @@ FlowRouter.route("/news/:slug/edit", {
     let news = News.findOne({
       slug: params.slug,
     });
-    
+
     return {
       text: "news_view",
       name: news ? news.headline : "View",
-      urls: [
-        "/news/"+ params.slug,
-      ],
+      urls: ["/news/" + params.slug],
     };
   },
   action: () => {
@@ -219,7 +217,7 @@ FlowRouter.route("/news/:slug", {
     let news = News.findOne({
       slug: params.slug,
     });
-    
+
     return {
       text: "news_view",
       name: news ? news.headline : "View",
