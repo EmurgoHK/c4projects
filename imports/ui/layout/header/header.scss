@@ -11,25 +11,26 @@
     cursor: pointer;
   }
 }
-header {
-  &.app-header {
-    padding: 0 0.5rem;
-    border-bottom: 1px solid #091a26;
-    // Logo CSS
-    .navbar-brand {
-      width: auto;
-      img {
-        max-width: 100%;
-        width: 155px;
-        height: auto;
-      }
+header.app-header {
+  padding: 0 0.5rem;
+  border-bottom: 1px solid #091a26;
+  // Logo CSS
+  .navbar-brand {
+    width: auto;
+    img {
+      max-width: 100%;
+      width: 155px;
+      height: auto;
     }
   }
+
   &.bg-dark {
     background-color: #091a26 !important;
   }
 
   .navbar-nav {
+    flex-direction: row;
+    display: flex;
     li.nav-item {
       a.nav-link {
         color: #fff;

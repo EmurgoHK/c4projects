@@ -1,0 +1,9 @@
+.notifications-index.container {
+  .notification-item {
+    &.read {
+    }
+    &.unread {
+      background-color: #e4e5e6
+    }
+  }
+}
