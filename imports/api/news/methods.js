@@ -6,6 +6,8 @@ import { News } from "./news";
 
 import { isModerator } from "../user/methods";
 import { isTesting } from "../utilities";
+import { notifySubscribers } from "../notifications/methods";
+import { Projects } from "../projects/projects";
 
 export const addNews = new ValidatedMethod({
   name: "addNews",
@@ -53,10 +55,18 @@ export const addNews = new ValidatedMethod({
         }
       }
 
+      const project = Projects.findOne({_id: data.projectId});
+      if (!project) {
+        throw new Meteor.Error("Error.", "messages.news.no_project");
+      }
+
       data.createdBy = Meteor.userId();
       data.createdAt = new Date().getTime();
 
       const id = News.insert(data);
+      const newDoc = News.findOne(id);
+
+      notifySubscribers(data.projectId, `News posted about ${project.headline}`, undefined, `/news/${newDoc.slug}`, 'newsPosted');
 
       return id;
     }

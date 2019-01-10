@@ -4,6 +4,16 @@ import SimpleSchema from "simpl-schema";
 import { ValidatedMethod } from "meteor/mdg:validated-method";
 
 import { Notifications } from "./notifications";
+import { Subscriptions } from "../subscriptions/subscriptions";
+
+export function notifySubscribers(articleId, message, from, href, type) {
+  const sub = Subscriptions.findOne({_id: articleId});
+  if (!sub)
+    return
+  for(const userId of sub.users) {
+    sendNotification(userId, message, from, href, type);
+  }
+}
 
 export const sendNotification = (userId, message, from, href, type) => {
   Notifications.insert({

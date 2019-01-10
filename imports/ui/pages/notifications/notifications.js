@@ -10,25 +10,17 @@ import { markNotificationAsRead, markAllAsRead } from "../../../api/notification
 
 Template.notifications.onCreated(function() {
   this.unread = new ReactiveVar([]);
+  this.subscribe("notifications");
+
   this.autorun(() => {
-    this.subscribe("notifications");
     let notifications = Notifications.find(
       {
         userId: Meteor.userId(),
         read: false,
-        $or: [
-          {
-            type: "notification",
-          },
-          {
-            type: {
-              $exists: false,
-            },
-          },
-        ],
       },
       { sort: { createdAt: -1 } }
     );
+
     if (notifications.count()) {
       this.unread.set(notifications.map(i => i._id));
     }
@@ -65,16 +57,6 @@ Template.notifications.helpers({
   notifications: () =>
     Notifications.find({
       userId: Meteor.userId(),
-      $or: [
-        {
-          type: "notification",
-        },
-        {
-          type: {
-            $exists: false,
-          },
-        },
-      ],
     }),
   notificationClass: notification => {
     return Template.instance()

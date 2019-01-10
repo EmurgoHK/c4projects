@@ -1,5 +1,6 @@
 import "../../shared/loader/loader";
 import "../../shared/userNameDisplay/userNameDisplay";
+import "../../shared/subscriptionButton/subscriptionButton";
 
 import "./viewProject.html";
 
