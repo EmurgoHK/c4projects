@@ -36,6 +36,9 @@
 			"news": "News",
 			"go_to": "Go to",
 			"are_you_sure": "Are you sure you want to remove this News? This action is not reversible."
+		},
+		"notification": {
+			"posted": "News were posted about %s"
 		}
 	}
 }

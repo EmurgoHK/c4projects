@@ -1,0 +1,13 @@
+<template name="subscriptionButton">
+  <span class="subscriptionButton">
+    {{#if isSubscribed}}
+      <button class="btn btn-link unsubscribe">
+        <i class="far fa-bell"></i>
+      </button>
+    {{else}}
+      <button class="btn btn-link subscribe">
+        <i class="far fa-bell-slash"></i>
+      </button>
+    {{/if}}
+  </span>
+</template>

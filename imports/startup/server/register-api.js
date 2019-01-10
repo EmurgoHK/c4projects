@@ -19,3 +19,7 @@ import "../../api/notifications/methods";
 import "../../api/comments/server/publications";
 import "../../api/comments/comments";
 import "../../api/comments/methods";
+
+import "../../api/subscriptions/server/publications";
+import "../../api/subscriptions/subscriptions";
+import "../../api/subscriptions/methods";

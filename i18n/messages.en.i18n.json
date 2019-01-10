@@ -1,0 +1,24 @@
+{
+	"messages": {
+		"comments": {
+			"no_comment": "Comment doesn't exist.",
+			"cant_remove": "You can't remove a comment that you haven't posted.",
+			"cant_edit": "You can't edit a comment that you haven't posted."
+		},
+		"projects": {
+			"no_project": "Project doesn't exist.",
+			"cant_remove": "You can't remove a project that you haven't created.",
+			"cant_edit": "You can't edit a project that you haven't created.",
+			"data": "Data already exists.",
+			"cant_merge": "You can only resolve data changes if you're a moderator or if you've created the project.",
+			"edit": "Edit doesn't exist."
+		},
+		"news": {
+			"no_project": "Project doesn't exist."
+		},
+		"login": "You have to be logged in.",
+		"already_flagged": "You have already flagged this item.",
+		"moderator": "You have to be a moderator.",
+		"recaptcha": "Recaptcha failed please try again."
+	}
+}
