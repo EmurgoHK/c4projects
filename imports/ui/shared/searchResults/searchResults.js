@@ -49,7 +49,7 @@ function getFilters(contentType, regex, languages, data) {
         orFilters = [{ description: regex }, { headline: regex }, { tags: regex }];
         break;
       case "news":
-        orFilters = [{ description: regex }, { headline: regex }, { tags: regex }, { projectId: data.searchTerm}];
+        orFilters = [{ description: regex }, { headline: regex }, { tags: regex }, { projectId: data.searchTerm }];
         break;
       default:
         throw new Error("UnknownContentType" + contentType);

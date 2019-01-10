@@ -40,6 +40,7 @@
                 </div>
               </div>
             </div>
+            {{> commentArea parentId=news._id articleType="news" commentSuccess=commentSuccess}}
           {{else}}
             {> loader }
           {{/if}}
