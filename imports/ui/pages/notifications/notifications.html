@@ -14,7 +14,7 @@
           {{#if notifications.count}}
             {{#each notification in notifications}}
               <div class="card d-block d-sm-none d-block d-sm-none">
-                <div id="{{_id}}" class="{{notificationClass notification}}" >
+                <div id="{{notification._id}}" class="{{notificationClass notification}}" data-id="{{ notification._id }}">
                   <a style="text-decoration: none; display: block;" href="{{href notification}}" class="card-body">
                     <span>{{notification.message}}</span>
                     <br />{{notification.from}}
@@ -27,7 +27,7 @@
               <table class="table table-hover mt-3">
                 <tbody>
                 {{#each notification in notifications}}
-                  <tr class="{{notificationClass notification}}">
+                  <tr class="{{notificationClass notification}}" data-id="{{ notification._id }}">
                     <a style="text-decoration: none;" href="{{href notification}}">
                       <td scope="row" style="width: 85%">{{notification.message}}</td>
                       <td>{{notification.from}}</td>

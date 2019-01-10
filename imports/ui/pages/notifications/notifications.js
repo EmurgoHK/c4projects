@@ -31,7 +31,7 @@ Template.notifications.events({
   "click .notification-item": function(event, templateInstance) {
     markNotificationAsRead.call(
       {
-        notificationId: this._id,
+        notificationId: event.currentTarget.getAttribute("data-id"),
       },
       (err, data) => {}
     );
