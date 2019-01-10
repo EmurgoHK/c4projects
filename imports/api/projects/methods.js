@@ -62,7 +62,7 @@ export const addProject = new ValidatedMethod({
         projectId: id,
         headline: `Project created: ${data.headline}`,
         description: `A new project was added called ${data.headline}`,
-        type: 'project_created',
+        type: "project_created",
       });
       return id;
     }

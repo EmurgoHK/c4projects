@@ -57,7 +57,7 @@ Meteor.publish("news.item", id => {
         createdAt: -1,
       },
     }
-  )
+  );
 });
 
 Meteor.publish("news.itemWithProject", id => {
@@ -78,8 +78,5 @@ Meteor.publish("news.itemWithProject", id => {
       },
     }
   );
-  return [
-    news,
-    ...news.map((n) => n.projectId ? Projects.find({_id: n.projectId}) : undefined),
-  ];
+  return [news, ...news.map(n => (n.projectId ? Projects.find({ _id: n.projectId }) : undefined))];
 });

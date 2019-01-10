@@ -1,14 +1,14 @@
-import "./home.html"
-import "./home.scss"
-import "../../shared/searchBar/searchBar"
-import "../../shared/searchResults/searchResults"
+import "./home.html";
+import "./home.scss";
+import "../../shared/searchBar/searchBar";
+import "../../shared/searchResults/searchResults";
 
 Template.home.onCreated(function() {
   this.searchFilter = new ReactiveVar(undefined);
-})
+});
 
 Template.home.helpers({
-  searchArgs : () => {
+  searchArgs: () => {
     const instance = Template.instance();
     return {
       placeholder: "Search projects",
@@ -17,7 +17,7 @@ Template.home.helpers({
     };
   },
 
-  resultArgs : () => {
+  resultArgs: () => {
     return {
       types: ["projects"],
       searchTerm: Template.instance().searchFilter.get(),
@@ -25,4 +25,4 @@ Template.home.helpers({
       languages: Meteor.user() && Meteor.user().profile && Meteor.user().profile.contentLanguages,
     };
   },
-})
+});
