@@ -233,3 +233,20 @@ FlowRouter.route("/news/:slug", {
     });
   },
 });
+
+FlowRouter.route("/notifications", {
+  name: "notifications",
+  breadcrumb: params => {
+    return {
+      text: "notifications",
+      urls: ["/notifications"],
+    };
+  },
+  action: () => {
+    BlazeLayout.render("main", {
+      header: "header",
+      sidebar: "sidebar",
+      main: "notifications",
+    });
+  },
+});

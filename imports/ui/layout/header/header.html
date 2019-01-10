@@ -16,8 +16,14 @@
       </li>
       <!-- Navigation items on the left for content pages -->
     </ul>
-    <ul class="nav navbar-nav d-none d-lg-block">
+    <ul class="nav navbar-nav">
       <!-- Navigation items stuck to the right -->
+      <li class="nav-item">
+        <a class="nav-link" href="/notifications">
+          <i class="icon-bell"></i>
+          {{#if notificationsCount}}<span class="badge badge-pill badge-danger">{{notificationsCount}}</span>{{/if}}
+        </a>
+      </li>
       <li class="nav-item dropdown">
         {{#if currentUser}}
         <a

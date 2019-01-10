@@ -1,5 +1,10 @@
 import "./header.html";
 import "./header.scss";
+import { Notifications } from "../../../api/notifications/notifications";
+
+Template.header.onCreated(function() {
+  this.subscribe("notifications");
+});
 
 Template.header.events({
   "click .sidebar-toggler"(event) {
@@ -50,6 +55,8 @@ Template.header.helpers({
   //     };
   //   });
   // },
+
+  notificationsCount: () => Notifications.find({ userId: Meteor.userId(), read: false }).count(),
 
   userId: () => Meteor.userId(),
 });

@@ -10,6 +10,8 @@
 		"news_new": "Projects / %s / Add News",
 		"news_edit": "News / Edit",
 		"news_translate": "News / Translate",
-		"news_view": "News / %s"
+		"news_view": "News / %s",
+
+		"notifications": "Notifications"
 	}
 }
