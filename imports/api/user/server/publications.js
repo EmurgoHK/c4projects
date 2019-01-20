@@ -12,6 +12,7 @@ Meteor.publish(null, () =>
         name: 1,
         language: 1,
         emails: 1,
+        userProfile : 1
       },
     }
   )
@@ -27,6 +28,7 @@ Meteor.publish("users", () =>
         name: 1,
         language: 1,
         emails: 1,
+        userProfile : 1
       },
     }
   )

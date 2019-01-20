@@ -1,0 +1,60 @@
+.user-profile{
+  position: relative;
+}
+
+.user-snapshot{
+  position: relative;
+  display: flex;
+  padding-bottom: 1em;
+  border-bottom: solid rgba(204, 204, 204, 0.28);
+  margin-bottom: 0.5em;
+  .photo{
+    position: relative;
+    flex-basis: 20%;
+    text-align: center;
+    figure{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10em;
+      width: 100%;
+    }
+    img{
+      max-width: 50px;
+      height: auto;
+    }
+  }
+  .about{
+    flex: 1;
+    .position{
+      color: #949191;
+      font-weight: 400;
+      font-size: 1.125em;
+    }
+  }
+  .contact{
+    flex-basis: 20%;
+    ul {
+      list-style: none;
+      li {
+        color: #929191;
+        line-height: 2em;
+      }
+      i {
+        min-width: 1.5em;
+      }
+      a {
+        color: #929191;
+      }
+    }
+  }
+}
+
+.user-content{
+  position: relative;
+  h5{
+    border-bottom: solid rgba(204, 204, 204, 0.28);
+    padding: 1em 0;
+    margin-bottom: 1.25em;
+  }
+}
