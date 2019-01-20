@@ -1,6 +1,7 @@
 import { Meteor } from "meteor/meteor";
 import { ValidatedMethod } from "meteor/mdg:validated-method";
 import SimpleSchema from "simpl-schema";
+import { userProfileSchema } from './userProfile';
 
 export function isModerator(userId) {
   let user = Meteor.users.findOne({
@@ -88,3 +89,25 @@ if (Meteor.isDevelopment) {
     },
   });
 }
+
+export const editProfile = new ValidatedMethod({
+  name : "editProfile",
+  validate: userProfileSchema.validator({
+    clean: true,
+  }),
+  run (data) {
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("Error.", "You have to be logged in.");
+    }
+    Meteor.users.update(
+      {
+        _id: Meteor.userId(),
+      },
+      {
+        $set: {
+          userProfile : data,
+        }
+      },
+    );
+  }
+})

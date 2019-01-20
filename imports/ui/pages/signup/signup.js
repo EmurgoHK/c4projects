@@ -13,6 +13,9 @@ Template.signup.events({
   submit(event) {
     event.preventDefault();
     let target = event.target;
+    let userProfile = {
+      fullName: target.name.value
+    }
     if (target.email.value !== "" && target.password.value !== "") {
       if (target.confirmPassword.value === target.password.value) {
         Accounts.createUser(
@@ -21,6 +24,7 @@ Template.signup.events({
             password: target.password.value,
             name: target.name.value,
             language: "en",
+            userProfile : userProfile
           },
           err => {
             if (err) {

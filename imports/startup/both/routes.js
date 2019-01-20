@@ -106,6 +106,41 @@ FlowRouter.route("/signup", {
 });
 
 // Set up all routes in the app
+
+FlowRouter.route("/profile/:userId", {
+  name: "profile",
+  breadcrumb: params => {
+    return {
+      text: "Profile",
+      urls: ["/profile"],
+    };
+  },
+  action: () => {
+    BlazeLayout.render("main", {
+      header: "header",
+      sidebar: "sidebar",
+      main: "userProfile",
+    });
+  },
+});
+
+FlowRouter.route("/profile/:userId/edit", {
+  name: "editProfile",
+  breadcrumb: params => {
+    return {
+      text: "Edit Profile",
+      urls: ["/profile/edit"],
+    };
+  },
+  action: () => {
+    BlazeLayout.render("main", {
+      header: "header",
+      sidebar: "sidebar",
+      main: "editProfile",
+    });
+  },
+});
+
 FlowRouter.route("/projects", {
   name: "projects",
   breadcrumb: params => {

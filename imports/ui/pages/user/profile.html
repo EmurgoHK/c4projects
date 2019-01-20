@@ -1,0 +1,41 @@
+<template name="userProfile">
+  <div class="user-profile">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="user-snapshot">
+          <div class="photo">
+            <figure>
+              <img src="/images/user.svg" alt={{name}}>
+            </figure>
+            {{#if ownProfile}}
+              <a class="btn btn-outline-primary" href={{editProfile}}>Edit Profile</a>
+            {{/if}}
+          </div>
+          <div class="about">
+            <h4 class="name">{{profile.fullName}}</h4>
+            <h6 class="position">{{profile.title}}</h6>
+            <p class="about">{{profile.about}}</p>
+          </div>
+          <div class="contact">
+            <ul>
+              {{#if profile.location}}<li><i class="fas fa-map-marker-alt"></i> {{profile.location}}</li>{{/if}}
+              {{#if profile.github}}<li><i class="fab fa-github"></i> <a href={{profile.github}} target="_blank">{{getUserName profile.github}}</a></li>{{/if}}
+              {{#if profile.twitter}}<li><i class="fab fa-twitter"></i> <a href={{profile.twitter}} target="_blank">{{getUserName profile.twitter}}</a></li>{{/if}}
+              {{#if profile.website}}<li><i class="fas fa-globe"></i> <a href={{profile.website}} target="_blank">{{simplifyWebAddress profile.website}}</a></li>{{/if}}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <div class="user-content">
+          <h5><i class="fas fa-chart-line"></i> Projects by {{name}}</h5>
+          <div class="card-columns">
+            {{#each project in projects}}
+              {{> projectCard project=project displayTypeLabel=displayTypeLabel textTransformer=highlighter}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

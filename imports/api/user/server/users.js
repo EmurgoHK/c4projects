@@ -1,4 +1,5 @@
 import SimpleSchema from "simpl-schema";
+import { userProfileSchema } from '../userProfile'
 
 Meteor.users.attachSchema(
   new SimpleSchema({
@@ -18,11 +19,20 @@ Meteor.users.attachSchema(
       label: "Moderator",
       defaultValue: false,
     },
+    userProfile : {
+      type : userProfileSchema,
+      label : "User Profile",
+    }
   })
 );
 
 Accounts.onCreateUser((options, user) => {
-  const customUser = Object.assign({}, { name: options.name, language: options.language, moderator: false }, user);
+  const customUser = Object.assign({}, {
+    name: options.name,
+    userProfile : options.userProfile,
+    language: options.language,
+    moderator: false
+  }, user);
 
   // Send Verification Email on Sign UP
   Meteor.setTimeout(function() {

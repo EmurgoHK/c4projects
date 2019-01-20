@@ -1,0 +1,38 @@
+<template name="editProfile">
+  <h2>Edit Profile</h2>
+  <form id="editProfileForm">
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="fullName">Display Name</label>
+        <input type="text" class="form-control" id="fullName" placeholder="First and Last Name" value={{userProfile.fullName}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Software Developer" value={{userProfile.title}}>
+    </div>
+    <div class="form-group">
+      <label for="about">About</label>
+      <textarea class="form-control" id="about" rows="3">{{userProfile.about}}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Location</label>
+      <input type="text" class="form-control" id="location" placeholder="New Delhi, India"  value={{userProfile.location}}>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="github">GitHub Profile</label>
+        <input type="url" class="form-control" id="github" placeholder="github.com/MadanBhandari" value={{userProfile.github}}>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="twitter">Twitter</label>
+        <input type="url" class="form-control" id="twitter" placeholder="twitter.com/MadankBhandari" value={{userProfile.twitter}}>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="website">Website</label>
+        <input type="url" class="form-control" id="website" placeholder="www.example.com" value={{userProfile.website}}>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Profile</button>
+  </form>
+</template>
